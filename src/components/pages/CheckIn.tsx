@@ -134,11 +134,11 @@ const CheckIn = () => {
               <Label className="text-sm font-medium text-foreground">
                 What type of help do you need? (Select all that apply)
               </Label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid gap-3">
                 {helpOptions.map(option => (
                   <label
                     key={option.id}
-                    className={`flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer transition-[var(--transition-smooth)] ${
+                    className={`flex items-center space-x-3 p-3 sm:p-4 border-2 rounded-lg cursor-pointer transition-[var(--transition-smooth)] ${
                       formData.helpNeeded.includes(option.id)
                         ? 'border-primary bg-primary/10'
                         : 'border-border hover:border-primary/50 hover:bg-primary/5'

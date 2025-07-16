@@ -1,5 +1,8 @@
-import { BookOpen, Heart, Droplets, Baby, Brain, Shield } from 'lucide-react';
+import { BookOpen, Heart, Droplets, Baby, Brain, Shield, ArrowLeft, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
 import { healthTips } from '../../data/tips';
+import { useUserData } from '../../hooks/useUserData';
 
 const Tips = () => {
   const getCategoryIcon = (category: string) => {
@@ -22,18 +25,37 @@ const Tips = () => {
     }
   };
 
+  const { userData } = useUserData();
+
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
+        {/* Navigation */}
+        <div className="flex justify-between items-center mb-6">
+          <Link to={userData ? "/dashboard" : "/"}>
+            <Button variant="outline" className="flex items-center space-x-2">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">Back to {userData ? "Dashboard" : "Home"}</span>
+              <span className="sm:hidden">Back</span>
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button variant="outline" size="sm" className="flex items-center space-x-1">
+              <Home className="w-4 h-4" />
+              <span className="hidden sm:inline">Home</span>
+            </Button>
+          </Link>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="w-16 h-16 gradient-wellness rounded-2xl flex items-center justify-center mx-auto mb-4">
             <BookOpen className="w-8 h-8 text-wellness-foreground" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
             Health Awareness & Safety Tips
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground">
             Essential health information to keep you and your family safe
           </p>
         </div>

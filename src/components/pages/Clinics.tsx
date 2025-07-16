@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
-import { MapPin, Clock, Phone, Heart, Filter } from 'lucide-react';
+import { MapPin, Clock, Phone, Heart, Filter, ArrowLeft, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { useUserData } from '../../hooks/useUserData';
 import { clinics } from '../../data/clinics';
@@ -23,17 +24,34 @@ const Clinics = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
+        {/* Navigation */}
+        <div className="flex justify-between items-center mb-6">
+          <Link to={userData ? "/dashboard" : "/"}>
+            <Button variant="outline" className="flex items-center space-x-2">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">Back to {userData ? "Dashboard" : "Home"}</span>
+              <span className="sm:hidden">Back</span>
+            </Button>
+          </Link>
+          <Link to="/">
+            <Button variant="outline" size="sm" className="flex items-center space-x-1">
+              <Home className="w-4 h-4" />
+              <span className="hidden sm:inline">Home</span>
+            </Button>
+          </Link>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Heart className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
             Nearby Clinics & PHCs
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground">
             {selectedDistrict === 'All' 
               ? 'Healthcare centers across all districts'
               : `Healthcare centers in ${selectedDistrict} district`
@@ -64,57 +82,55 @@ const Clinics = () => {
 
         {/* Clinics List */}
         {filteredClinics.length > 0 ? (
-          <div className="grid gap-6">
+          <div className="grid gap-4 sm:gap-6">
             {filteredClinics.map(clinic => (
-              <div key={clinic.id} className="card-healthcare p-6 hover:scale-[1.02] transition-[var(--transition-smooth)]">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex-1">
-                    {/* Clinic Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">
-                          {clinic.name}
-                        </h3>
-                        <div className="flex items-center text-muted-foreground mb-2">
-                          <MapPin className="w-4 h-4 mr-1" />
-                          <span className="text-sm">{clinic.address}</span>
-                        </div>
-                      </div>
-                      <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20">
-                        {clinic.district}
-                      </span>
-                    </div>
-
-                    {/* Services */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-foreground mb-2">Services Offered:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {clinic.services.map((service, index) => (
-                          <span
-                            key={index}
-                            className={`px-3 py-1 text-xs font-medium rounded-full border ${getServiceBadgeColor(service)}`}
-                          >
-                            {service}
-                          </span>
-                        ))}
+              <div key={clinic.id} className="card-healthcare p-4 sm:p-6 hover:scale-[1.02] transition-[var(--transition-smooth)]">
+                <div className="space-y-4">
+                  {/* Clinic Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
+                        {clinic.name}
+                      </h3>
+                      <div className="flex items-start text-muted-foreground mb-2">
+                        <MapPin className="w-4 h-4 mr-1 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">{clinic.address}</span>
                       </div>
                     </div>
+                    <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20 self-start">
+                      {clinic.district}
+                    </span>
+                  </div>
 
-                    {/* Timings */}
-                    <div className="flex items-center text-muted-foreground mb-4">
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span className="text-sm font-medium">{clinic.timings}</span>
+                  {/* Services */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground mb-2">Services Offered:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {clinic.services.map((service, index) => (
+                        <span
+                          key={index}
+                          className={`px-2 sm:px-3 py-1 text-xs font-medium rounded-full border ${getServiceBadgeColor(service)}`}
+                        >
+                          {service}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Contact Section */}
-                  <div className="lg:ml-6 mt-4 lg:mt-0">
-                    <div className="text-center lg:text-right">
-                      <div className="text-lg font-bold text-foreground mb-2">
+                  {/* Timings and Contact */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex items-center text-muted-foreground">
+                      <Clock className="w-4 h-4 mr-2" />
+                      <span className="text-sm font-medium">{clinic.timings}</span>
+                    </div>
+
+                    {/* Contact Section */}
+                    <div className="text-center sm:text-right">
+                      <div className="text-base sm:text-lg font-bold text-foreground mb-2">
                         📞 {clinic.phone}
                       </div>
                       <a href={`tel:${clinic.phone}`}>
-                        <Button className="btn-secondary w-full lg:w-auto">
+                        <Button className="btn-secondary w-full sm:w-auto">
                           <Phone className="w-4 h-4 mr-2" />
                           Call Now
                         </Button>

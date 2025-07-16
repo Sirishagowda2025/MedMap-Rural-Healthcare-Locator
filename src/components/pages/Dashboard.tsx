@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, BookOpen, User, Heart, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, BookOpen, User, Heart, AlertCircle, ArrowLeft, Home, Settings } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useUserData } from '../../hooks/useUserData';
 
@@ -35,30 +35,47 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen gradient-hero py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen gradient-hero py-4 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
+        {/* Navigation */}
+        <div className="flex justify-between items-center mb-6">
+          <Link to="/">
+            <Button variant="outline" className="flex items-center space-x-2">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">Back to Home</span>
+              <span className="sm:hidden">Home</span>
+            </Button>
+          </Link>
+          <Link to="/about">
+            <Button variant="outline" size="sm" className="flex items-center space-x-1">
+              <Settings className="w-4 h-4" />
+              <span className="hidden sm:inline">About</span>
+            </Button>
+          </Link>
+        </div>
+
         {/* Welcome Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
             <User className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
             Hello, {userData.fullName.split(' ')[0]}! 👋
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground">
             {getLocationSpecificMessage()}
           </p>
         </div>
 
         {/* Quick Access Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {/* Clinics Card */}
           <Link to="/clinics" className="group">
-            <div className="card-healthcare p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
-              <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-[var(--shadow-glow)]">
-                <MapPin className="w-6 h-6 text-white" />
+            <div className="card-healthcare p-4 sm:p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:shadow-[var(--shadow-glow)]">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                 Clinics in {userData.location}
               </h3>
               <p className="text-muted-foreground text-sm">
@@ -69,11 +86,11 @@ const Dashboard = () => {
 
           {/* Emergency Card */}
           <Link to="/emergency" className="group">
-            <div className="card-healthcare p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
-              <div className="w-12 h-12 bg-emergency rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-[var(--shadow-glow)]">
-                <Phone className="w-6 h-6 text-emergency-foreground" />
+            <div className="card-healthcare p-4 sm:p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emergency rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:shadow-[var(--shadow-glow)]">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-emergency-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                 Emergency Contacts
               </h3>
               <p className="text-muted-foreground text-sm">
@@ -83,12 +100,12 @@ const Dashboard = () => {
           </Link>
 
           {/* Health Tips Card */}
-          <Link to="/tips" className="group">
-            <div className="card-healthcare p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
-              <div className="w-12 h-12 gradient-wellness rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-[var(--shadow-glow)]">
-                <BookOpen className="w-6 h-6 text-wellness-foreground" />
+          <Link to="/tips" className="group sm:col-span-2 lg:col-span-1">
+            <div className="card-healthcare p-4 sm:p-6 text-center group-hover:scale-105 transition-[var(--transition-bounce)]">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 gradient-wellness rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:shadow-[var(--shadow-glow)]">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-wellness-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                 Wellness Tips
               </h3>
               <p className="text-muted-foreground text-sm">
