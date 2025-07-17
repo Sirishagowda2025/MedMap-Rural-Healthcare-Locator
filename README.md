@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+# 🏥 MedMap – Rural Healthcare Locator
 
-## Project info
+A web-based healthcare locator app built as a solo project for **Innothon 2025 – Tech for Impact**, organized by Code Club, CCOEW Pune.
 
-**URL**: https://lovable.dev/projects/7a6acb54-77cc-4ffa-a9fb-4e74fa24291f
+---
 
-## How can I edit this code?
+## 📌 Overview
 
-There are several ways of editing your application.
+**MedMap** aims to make healthcare more accessible to rural communities by helping users:
 
-**Use Lovable**
+- Discover **verified clinics** in their district
+- Access **emergency contacts** instantly
+- Read **simple, actionable health tips**
+- Navigate through a **mobile-friendly, no-login interface**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7a6acb54-77cc-4ffa-a9fb-4e74fa24291f) and start prompting.
+This is a fully responsive prototype built with Lovable, then exported and enhanced using **React**, **Vite**, **TypeScript**, **Tailwind CSS**, and **shadcn/ui**.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 Live Demo
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🔗 [View the Live Web App](https://your-netlify-link.netlify.app)  
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🧰 Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Tool            | Purpose                                          |
+|-----------------|--------------------------------------------------|
+| **Lovable**     | UI Prototyping (no-code layout & flow)           |
+| **React + TS**  | Frontend development with type safety            |
+| **Vite**        | Development server & bundling                    |
+| **Tailwind CSS**| Responsive design using utility-first classes    |
+| **shadcn/ui**   | Prebuilt accessible UI components                |
+| **Netlify**     | Static site hosting and public deployment        |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🧭 User Flow
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+1. **Home Page** → Intro + "Start Now" CTA  
+2. **Check-In** → User provides name, district, need  
+3. **Dashboard** → 3 options: Clinics, Emergency, Health Tips  
+4. **Clinics Page** → Shows verified centers in the selected district  
+5. **Emergency Page** → Shows 108, 181, 1098, etc.  
+6. **Tips Page** → Shows simple health tips for awareness
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏗️ Architecture Overview
 
-**Use GitHub Codespaces**
+- Frontend: React + Tailwind + TypeScript  
+- Built using Vite for blazing-fast dev & build  
+- Hosted via Netlify as a static site  
+- Designed first in Lovable, then enhanced with code
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🎯 Motivation
 
-This project is built with:
+Millions of people in rural India face challenges accessing basic healthcare information. MedMap aims to solve this with a tool that is **simple, scalable, and social-impact driven**, requiring no app downloads or logins.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 🙋‍♀️ Author
 
-Simply open [Lovable](https://lovable.dev/projects/7a6acb54-77cc-4ffa-a9fb-4e74fa24291f) and click on Share -> Publish.
+**Sirisha D**  
+Final Year Student – Sambhram institute of technology  
+Solo Developer  | Frontend Dev | Content | Deployment
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📝 Submission for
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+**Innothon 2025 – Web Development Challenge**  
+Organized by Code Club, CCOEW Pune
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+
+
