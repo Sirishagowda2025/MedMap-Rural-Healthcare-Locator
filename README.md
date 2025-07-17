@@ -19,7 +19,7 @@ This is a fully responsive prototype built with Lovable, then exported and enhan
 
 ## 🚀 Live Demo
 
-🔗 [View the Live Web App](https://your-netlify-link.netlify.app)  
+🔗 [View the Live Web App](https://medmap-connect-rural.lovable.app)  
 
 ---
 
