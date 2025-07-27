@@ -17,9 +17,14 @@ This is a fully responsive prototype built with Lovable, then exported and enhan
 
 ---
 
-## 🚀 Live Demo
+### 🎥 Walkthrough Video
 
-🔗 [View the Live Web App](https://medmap-connect-rural.lovable.app)  
+Here's a complete Loom demo covering the problem statement, UX flow, and tech implementation:
+
+🔗 **Video Link**: [Watch the demo on Loom](https://www.loom.com/share/3a31ae03f72145ffaf4b7fa7b779cbe8?sid=7b620db7-e3e2-4b03-813f-fe409bdc1a64)
+
+🌐 **Live App**: [View the Live Web App](https://medmap-connect-rural.lovable.app)
+ 
 
 ---
 
